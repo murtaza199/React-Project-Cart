@@ -1,36 +1,53 @@
-import { Table } from "react-bootstrap";
+import { useState } from "react";
+function Employee() {
+  const [user, setUser] = useState("");
+  const [userErr, setUserErr] = useState(false);
 
-function Employee()
-{
-  const ITD=[
-    {Name: "Murtaza Hassan" ,post:"Frontend Developer" ,addr:"Delhi",contact:"000"},
-    {Name: "Rock Jhonson" ,post:"Backend Developer" ,addr:"London",contact:'111'},
-    {Name: "Under Taker" ,post:"IT head" ,addr:"New york",contact:"222"},
-    {Name: "Dave Batista" ,post:"Frontend Developer" ,addr:"Gurugram",contact:"333"},
-    {Name: "John Cena" ,post:"Frontend Developer" ,addr:"bangluru",contact:"444"}
-  ]
-return(
-  <div>
-   <h2> IT Department List </h2>
-   <Table striped bordered hover variant="dark" >
-     <tbody>
-     <tr>
-       <td>Name</td>
-       <td>Post</td>
-       <td>Address</td>
-       <td>Contact</td>
-     </tr>
-{ITD.map((data,i)=>
-<tr key="i">
-  <td><h3>{data.Name}</h3></td>
-  <td><h3>{data.post}</h3></td>
-  <td><h3>{data.addr}</h3></td>
-  <td><h3>{data.contact}</h3></td>
-</tr>)}
-</tbody>
-</Table>
-  </div>
-)
+  function loginHandler(e) {
+    e.preventDefault();
+    if (user.length>3)
+    {alert("Welcome" + user)}else{alert("invalid user")}
+  }
+  function userHandler(e) {
+    let item = e.target.value;
+    if (item.length < 3) {
+      setUserErr(true);
+    } else {
+      setUserErr(false);
+    }
+    setUser(item)
+  }
+  return (
+    <div>
+      <h1>Employee Login</h1>
+      <br />
+      <br />
+      <form onSubmit={loginHandler}>
+        <input
+          type="text"
+          placeholder="Enter User Name"
+          onChange={userHandler}
+          required
+        />
+        {userErr ? <h3>InValid User Name</h3> : null}
+        <br />
+        <br />
+        <input type="email" placeholder="Enter Email Id" required />
 
+        <br />
+        <br />
+        <input
+          type="password"
+          placeholder="Enter Password"
+          minLength="3"
+          maxLength="8"
+        />
+        <br />
+        <br />
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+      </form>
+    </div>
+  );
 }
 export default Employee;
