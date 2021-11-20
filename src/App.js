@@ -8,6 +8,7 @@ function App() {
     newTime= new Date().toLocaleTimeString()
     setCtime(newTime);
   }
+  setInterval(updateTime,1000)
   return (
     <div className="App">
       <h1> {cTime} </h1>
