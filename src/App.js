@@ -1,11 +1,11 @@
 import Users from './Users';
-import HocUsers from './HocUsers';
+import Hoc from './HocUsers';
 function App() {
  
  return (
     <>
-    <Users/>
-    <HocUsers comp={Users}/>
+ <Users></Users>
+    <Hoc comp={Users}/>
     </>
   );
 }

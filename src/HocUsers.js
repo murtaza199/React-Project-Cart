@@ -1,8 +1,8 @@
-function HocUsers(props){
+function Hoc(props){
     return(
-        <>
-        <span style={{color:"red"}}><props.comp/></span>
-        </>
+        <div>
+<h1>< props.comp/></h1>
+        </div>
     )
 }
-export default HocUsers;
+export default Hoc;
