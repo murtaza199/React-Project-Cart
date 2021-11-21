@@ -1,14 +1,11 @@
-
-import './App.css';
 import Users from './Users';
+import HocUsers from './HocUsers';
 function App() {
  
-  function parentAlert(name){
-    alert(name)
-  }
-  return (
+ return (
     <>
-    <Users data={parentAlert}/>
+    <Users/>
+    <HocUsers comp={Users}/>
     </>
   );
 }
