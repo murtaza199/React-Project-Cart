@@ -1,12 +1,12 @@
-import Users from './Users';
-import Hoc from './HocUsers';
+import "./App.css";
+import HomeContainer from "./Containers/HomeContainer";
+import HeaderContainer from "./Containers/HeaderContainer";
 function App() {
- 
- return (
-    <>
- <Users></Users>
-    <Hoc comp={Users}/>
-    </>
+  return (
+    <div className="App">
+      <HeaderContainer />
+      <HomeContainer />
+    </div>
   );
 }
 
